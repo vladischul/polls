@@ -1,9 +1,9 @@
 li a {
-    color: green;
+    color: black;
 }
 
 body {
-    background: white url("images/background.png");
+    background: white;
     background-size:     cover;                   
     background-repeat:   no-repeat;
     background-position: center center;

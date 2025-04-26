@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from debug_toolbar.toolbar import debug_toolbar_urls
+from polls_app import views
 
 urlpatterns = [
     path("polls/", include("polls_app.urls")),
     path('admin/', admin.site.urls),
-]
+    path('institute/<int:institute_id>/', views.InstituteView.as_view(), name='institute_polls'),
+] + debug_toolbar_urls()

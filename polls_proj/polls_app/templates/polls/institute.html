@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+<h2>All Polls from {{ institute.name }}</h2>
+
+<ul>
+    {% for poll in polls %}
+        <li>
+            <a href="{% url 'polls_app:poll_detail' poll.id %}">
+                Poll Date: {{ poll.pub_date }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'polls_app:index' %}">Back to Polls</a>

@@ -3,11 +3,27 @@
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
 {% if latest_question_list %}
+    <h2>Fragen</h2>
     <ul>
     {% for question in latest_question_list %}
         <li><a href="{% url 'polls_app:detail' question.id %}">{{ question.question_text }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <p>No questions available.</p>
+{% endif %}
+
+{% if polls %}
+    <h2>Polls</h2>
+    <ul>
+    {% for poll in polls %}
+        <li>
+            <a href="{% url 'polls_app:poll_detail' poll.id %}">
+                <strong>{{ poll.institute.name }}</strong> - Poll Date: {{ poll.pub_date }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls found.</p>
 {% endif %}

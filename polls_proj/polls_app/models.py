@@ -28,3 +28,27 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+    
+class Institute(models.Model):
+    id = models.IntegerField(primary_key=True)  # ID explizit setzen
+    name = models.CharField(max_length=100)
+
+class Party(models.Model):
+    id = models.IntegerField(primary_key=True)  # ID explizit setzen
+    name = models.CharField(max_length=100)
+    color = models.CharField(max_length=7)
+    
+
+class Poll(models.Model):
+    institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
+    pub_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.institute.name} - {self.pub_date}"
+
+
+
+class PollResult(models.Model):
+    poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
+    party = models.ForeignKey(Party, on_delete=models.CASCADE)
+    percentage = models.FloatField()

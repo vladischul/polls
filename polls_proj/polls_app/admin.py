@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Choice, Question
+from .models import Choice, Question, Institute, Party, Poll, PollResult
 
 
 class ChoiceInline(admin.TabularInline):
@@ -29,4 +29,9 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display_links = ["question_text"]
 
 
+
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(Institute)
+admin.site.register(Party)
+admin.site.register(Poll)
+admin.site.register(PollResult)

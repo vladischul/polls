@@ -2,7 +2,19 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <h2>{{ poll.institute.name }} - Poll Date: {{ poll.pub_date }}</h2>
+
+<div style="display: flex; justify-content: space-around; margin-bottom: 30px;">
+    <div style="position: relative; width: 45%; height: 400px;">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <div style="position: relative; width: 45%; height: 400px;">
+        <canvas id="pieChart"></canvas>
+    </div>
+</div>
 
 <h3>Poll Results</h3>
 <ul>
@@ -11,8 +23,105 @@
     {% endfor %}
 </ul>
 
+
 <a href="{% url 'polls_app:index' %}">Back to Polls</a>
 
 <a href="{% url 'polls_app:institute' poll.institute.id %}" class="button">
     View all polls from {{ poll.institute.name }}
 </a>
+
+<script>
+    const pollData = [
+        {% for result in poll_results %}
+            {
+                party: "{{ result.party.name|escapejs }}", 
+                partyShortcut: "{{ result.party.shortcut|escapejs }}", 
+                percentage: "{{ result.percentage|default:"0"|escapejs }}",
+            },
+        {% endfor %}
+    ];
+
+    console.log(pollData);
+
+    const labels = pollData.map(result => result.partyShortcut);
+    const data = pollData.map(result => {
+        const percentage = parseFloat(result.percentage);
+        if (isNaN(percentage)) {
+            console.error(`Ungültiger Prozentsatz für Partei ${result.party}: ${result.percentage}`);
+            return 0;
+        }
+        return percentage;
+    });
+
+    const partyColorMapping = {
+        'CDU': 'rgba(0, 0, 0, 0.7)',
+        'AfD': 'rgba(0, 102, 204, 0.7)',
+        'SPD': 'rgba(220, 0, 0, 0.7)',
+        'Grüne': 'rgba(0, 153, 0, 0.7)',
+        'Linke': 'rgba(197, 0, 123, 0.7)',
+        'Sonstige': 'rgba(192, 192, 192, 0.7)',
+        'FDP': 'rgba(255, 205, 0, 0.7)',
+        'BSW': 'rgba(0, 204, 204, 0.7)'
+    };
+
+    const colorCount = Math.min(pollData.length, partyColorMapping.length);
+    const colorsForChart = labels.map(label => partyColorMapping[label]);
+
+    const dataForChart = {
+        labels: labels,
+        datasets: [{
+            label: 'Percentages',
+            data: data,
+            backgroundColor: colorsForChart,
+            borderColor: colorsForChart,
+            borderWidth: 1
+        }]
+    };
+
+    const commonOptions = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return tooltipItem.label + ': ' + tooltipItem.raw.toFixed(2) + '%';
+                    }
+                }
+            }
+        }
+    };
+
+    const pieChartConfig = {
+        type: 'pie',
+        data: dataForChart,
+        options: commonOptions
+    };
+
+    const barChartConfig = {
+        type: 'bar',
+        data: dataForChart,
+        options: {
+            ...commonOptions,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                }
+            }
+        }
+    };
+
+    const pieChart = new Chart(
+        document.getElementById('pieChart'),
+        pieChartConfig
+    );
+
+    const barChart = new Chart(
+        document.getElementById('barChart'),
+        barChartConfig
+    );
+</script>
+
+

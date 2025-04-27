@@ -93,3 +93,19 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse("polls_app:results", args=(question.id,)))
+
+def poll_detail(request, poll_id):
+    poll = Poll.objects.get(pk=poll_id)
+    poll_results = poll.pollresult_set.all()
+
+    # Prepare data for the chart
+    chart_data = {
+        "labels": [result.party.name for result in poll_results],
+        "percentages": [result.percentage for result in poll_results],
+    }
+
+    return render(request, 'polls/poll_detail.html', {
+        'poll': poll,
+        'poll_results': poll_results,
+        'chart_data': chart_data,
+    })

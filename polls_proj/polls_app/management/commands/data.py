@@ -10,6 +10,12 @@ class Command(BaseCommand):
     help = "Füge Institute aus der API hinzu"
 
     def handle(self, *args, **kwargs):
+        # Wipe all existing Polls and PollResults
+        self.stdout.write("Lösche alle bestehenden Polls und PollResults...")
+        PollResult.objects.all().delete()
+        Poll.objects.all().delete()
+        self.stdout.write(self.style.SUCCESS("Alle Polls und PollResults wurden gelöscht."))
+
         # API-Endpunkt
         api_url = "https://api.dawum.de/"
         response = requests.get(api_url)
@@ -46,17 +52,20 @@ class Command(BaseCommand):
             else:
                 for party_id, party_data in parties.items():
                     name = party_data.get("Name")
-                    color = party_data.get("Color", "#000000")  # Standardfarbe Schwarz, falls keine Farbe angegeben ist
+                    color = party_data.get("Color", "#000000")
+                    shortcut = party_data.get("Shortcut", "")
                     if not name:
                         self.stdout.write(self.style.ERROR(f"Partei mit ID {party_id} hat keinen Namen."))
                         continue
 
                     # Erstelle oder aktualisiere die Partei
-                    party, created = Party.objects.get_or_create(name=name, defaults={"color": color})
+                    party, created = Party.objects.get_or_create(
+                        name=name, defaults={"color": color, "shortcut": shortcut}
+                    )
                     if created:
                         self.stdout.write(self.style.SUCCESS(f"Partei '{name}' hinzugefügt."))
-                    else:
-                        self.stdout.write(f"Partei '{name}' existiert bereits.")
+                    #else:
+                    #    self.stdout.write(f"Partei '{name}' existiert bereits.")
 
             # API-Daten in eine Datei schreiben
             with open("api_data_debug.json", "w", encoding="utf-8") as file:

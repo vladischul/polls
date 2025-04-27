@@ -30,13 +30,17 @@ class Choice(models.Model):
         return self.choice_text
     
 class Institute(models.Model):
-    id = models.IntegerField(primary_key=True)  # ID explizit setzen
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
 
 class Party(models.Model):
-    id = models.IntegerField(primary_key=True)  # ID explizit setzen
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
     color = models.CharField(max_length=7)
+    shortcut = models.CharField(max_length=10, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
     
 
 class Poll(models.Model):

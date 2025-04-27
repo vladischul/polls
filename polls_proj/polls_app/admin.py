@@ -29,9 +29,13 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display_links = ["question_text"]
 
 
+@admin.register(Party)
+class PartyAdmin(admin.ModelAdmin):
+    list_display = ('name', 'shortcut', 'color')
+    search_fields = ('name', 'shortcut')
+
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Institute)
-admin.site.register(Party)
 admin.site.register(Poll)
 admin.site.register(PollResult)

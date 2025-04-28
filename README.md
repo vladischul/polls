@@ -48,17 +48,24 @@ Follow these instructions to set up and run the project locally.
    ```bash
    python manage.py createsuperuser
    ```
+6. **Update database (optional)**
+   ```bash
+   python manage.py data
+   ```
 
-6. **Run the development server**
+7. **Run the development server**
    ```bash
    python manage.py runserver
    ```
 
-7. **Access the app**
+8. **Access the app**
    Open your browser and go to: [http://127.0.0.1:8000/polls](http://127.0.0.1:8000/polls)
+
+## Data & Legal
+Polling data is taken directly from **https://api.dawum.de/**. 
+Data source: dawum.de (Open Database License (ODbL odbl.dawum.de))
 
 ## Usage
 
-- Visit the homepage to view and vote on polls
+- Visit the homepage to view polls
 - Log in as an admin to create and manage polls
-- Results are updated in real-time after voting

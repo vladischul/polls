@@ -9,9 +9,10 @@ import requests
 
 from .models import Question, Choice, Poll, PollResult, Institute, Party
 
-class IndexView(generic.View):
+class IndexView(generic.ListView):
     template_name = "polls/index.html"
-
+    context_object_name = "polls"
+    
     def get(self, request, *args, **kwargs):
         latest_polls = Poll.objects.values('institute').annotate(latest_date=Max('pub_date')).order_by('-latest_date')
         polls = Poll.objects.filter(pub_date__in=[poll['latest_date'] for poll in latest_polls]).order_by('-pub_date').prefetch_related('pollresult_set')
@@ -22,6 +23,8 @@ class IndexView(generic.View):
             'latest_question_list': latest_question_list,
             'polls': polls,
         })
+    def get_queryset(self):
+        return Poll.objects.order_by("-pub_date")
 
 class DetailView(generic.DetailView):
     model = Question

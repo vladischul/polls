@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from django.db.models import F, Q, Value, Max
+from django.db.models import F, Q, Value, Max, Avg
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
@@ -13,16 +13,14 @@ class IndexView(generic.View):
     template_name = "polls/index.html"
 
     def get(self, request, *args, **kwargs):
-        # Neueste Umfrage pro Institut abrufen
         latest_polls = Poll.objects.values('institute').annotate(latest_date=Max('pub_date')).order_by('-latest_date')
-        polls = Poll.objects.filter(pub_date__in=[poll['latest_date'] for poll in latest_polls]).order_by('-pub_date')
+        polls = Poll.objects.filter(pub_date__in=[poll['latest_date'] for poll in latest_polls]).order_by('-pub_date').prefetch_related('pollresult_set')
 
-        # Fragen laden
         latest_question_list = Question.objects.order_by('-pub_date')[:5]
 
         return render(request, self.template_name, {
             'latest_question_list': latest_question_list,
-            'polls': polls,  # Übergib die gefilterten Polls an das Template
+            'polls': polls,
         })
 
 class DetailView(generic.DetailView):
@@ -62,13 +60,11 @@ class InstituteView(generic.ListView):
     context_object_name = "polls"
 
     def get_queryset(self):
-        # Alle Umfragen für ein bestimmtes Institut abrufen
         institute_id = self.kwargs['institute_id']
         return Poll.objects.filter(institute_id=institute_id).order_by('-pub_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Institut zum Kontext hinzufügen
         context['institute'] = get_object_or_404(Institute, pk=self.kwargs['institute_id'])
         return context
 
@@ -77,7 +73,6 @@ def vote(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
     except (KeyError, Choice.DoesNotExist):
-        # Redisplay the question voting form.
         return render(
             request,
             "polls/detail.html",
@@ -89,23 +84,5 @@ def vote(request, question_id):
     else:
         selected_choice.votes = F("votes") + 1
         selected_choice.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
         return HttpResponseRedirect(reverse("polls_app:results", args=(question.id,)))
 
-def poll_detail(request, poll_id):
-    poll = Poll.objects.get(pk=poll_id)
-    poll_results = poll.pollresult_set.all()
-
-    # Prepare data for the chart
-    chart_data = {
-        "labels": [result.party.name for result in poll_results],
-        "percentages": [result.percentage for result in poll_results],
-    }
-
-    return render(request, 'polls/poll_detail.html', {
-        'poll': poll,
-        'poll_results': poll_results,
-        'chart_data': chart_data,
-    })

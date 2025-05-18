@@ -4,19 +4,25 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<h2>{{ poll.institute.name }} - Poll Date: {{ poll.pub_date }}</h2>
+<h2>{{ poll.institute.name }} - veröffentlicht: {{ poll.pub_date }}</h2>
+{% if poll.survey_period %}
+    <h3 style="margin-top:-10px">Umfragezeitraum: {{ poll.survey_period }}</h3>
+{% endif %}
+{% if poll.surveyed_persons %}
+    <h4 style="margin-top:-10px">befragte Personen: {{ poll.surveyed_persons }}</h4>
+{% endif %}
 
 <div style="display: flex; justify-content: space-around; margin-bottom: 30px;">
-    <div style="position: relative; width: 45%; height: 400px;">
+    <div style="position: relative; width: 40%; height: 400px;">
         <canvas id="barChart"></canvas>
     </div>
 
-    <div style="position: relative; width: 45%; height: 400px;">
+    <div style="position: relative; width: 40%; height: 500px;">
         <canvas id="pieChart"></canvas>
     </div>
 </div>
 
-<h3>Poll Results</h3>
+<h3>Umfrageergebnisse</h3>
 <ul>
     {% for result in poll_results %}
         <li>{{ result.party.name }}: {{ result.percentage }}%</li>
@@ -24,10 +30,10 @@
 </ul>
 
 
-<a href="{% url 'polls_app:index' %}">Back to Polls</a>
+<a href="{% url 'polls_app:index' %}">Züruck</a>
 
 <a href="{% url 'polls_app:institute' poll.institute.id %}" class="button">
-    View all polls from {{ poll.institute.name }}
+    Alle Umfragen von {{ poll.institute.name }}
 </a>
 
 <script>
@@ -73,8 +79,7 @@
             label: 'Percentages',
             data: data,
             backgroundColor: colorsForChart,
-            borderColor: colorsForChart,
-            borderWidth: 1
+            borderWidth: 1.5,
         }]
     };
 
@@ -91,13 +96,27 @@
                     }
                 }
             }
-        }
+        },
     };
 
     const pieChartConfig = {
         type: 'pie',
-        data: dataForChart,
-        options: commonOptions
+        data: { 
+            ...dataForChart,
+            datasets: [{
+                ...dataForChart.datasets[0],
+                borderColor: '#ffffff',
+                hoverOffset: 4,
+            }]
+        },
+        options: { 
+            ...commonOptions,
+            hover: {
+                mode: 'dataset',
+                axis: 'x',
+                animationDureation: 400,
+            },
+        }
     };
 
     const barChartConfig = {

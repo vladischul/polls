@@ -8,3 +8,8 @@ body {
     background-repeat:   no-repeat;
     background-position: center center;
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    fill: #000000;
+}

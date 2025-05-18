@@ -7,36 +7,41 @@
 
 {% if polls %}
     <h2>Polls</h2>
-    <ul>
-    {% for poll in polls %}
-        <li>
-            <a href="{% url 'polls_app:poll_detail' poll.id %}">
-                <strong>{{ poll.institute.name }}</strong> - Poll Date: {{ poll.pub_date }}
-            </a>
-        </li>
-    {% endfor %}
-    </ul>
-
-    <div id="pollCarousel" class="carousel slide" data-bs-ride="carousel" style="width: 50%;">
-        <div class="carousel-inner">
-            {% for poll in polls|slice:":5" %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <h3 style="margin: 1%;">{{ poll.institute.name }} - Poll Date: {{ poll.pub_date }}</h3>
-                <div style="position: relative; width: 100%; height: 400px; margin-left: 2%;">
-                    <canvas id="chart-{{ forloop.counter0 }}"></canvas>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+            {% for poll in polls %}
+                <li>
+                    <a href="{% url 'polls_app:poll_detail' poll.id %}">
+                        <strong>{{ poll.institute.name }}</strong> - Poll Date: {{ poll.pub_date }}
+                    </a>
+                </li>
             {% endfor %}
+            </ul>
         </div>
+        <div class="col-md-6">
+            <div id="pollCarousel" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
+                <div class="carousel-inner">
+                    {% for poll in polls|slice:":5" %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <h3 style="margin: 1%;">{{ poll.institute.name }} - Poll Date: {{ poll.pub_date }}</h3>
+                        <div style="position: relative; width: 80%; height: 400px; margin-left: 10%;">
+                            <canvas id="chart-{{ forloop.counter0 }}"></canvas>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#pollCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#pollCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+                <button class="carousel-control-prev" type="button" data-bs-target="#pollCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#pollCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
     </div>
 
     <script>

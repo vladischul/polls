@@ -46,6 +46,8 @@ class Party(models.Model):
 class Poll(models.Model):
     institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
     pub_date = models.DateField()
+    survey_period = models.CharField(max_length=100, blank=True, null=True)
+    surveyed_persons = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.institute.name} - {self.pub_date}"

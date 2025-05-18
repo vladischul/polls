@@ -7,18 +7,38 @@
         },
         "Publisher": "dawum.de",
         "Author": "Dipl.-Jur. Philipp Guttmann",
-        "Last_Update": "2025-04-24T19:07:10+02:00"
+        "Last_Update": "2025-05-13T18:25:36+02:00"
     },
     "Parliaments": {
-        "3": {
-            "Shortcut": "Berlin",
-            "Name": "Berliner Abgeordnetenhaus",
-            "Election": "Abgeordnetenhauswahl in Berlin"
-        },
         "0": {
             "Shortcut": "Bundestag",
             "Name": "Bundestag",
             "Election": "Bundestagswahl"
+        },
+        "1": {
+            "Shortcut": "Baden-Württemberg",
+            "Name": "Landtag von Baden-Württemberg",
+            "Election": "Landtagswahl in Baden-Württemberg"
+        },
+        "16": {
+            "Shortcut": "Thüringen",
+            "Name": "Thüringischer Landtag",
+            "Election": "Landtagswahl in Thüringen"
+        },
+        "5": {
+            "Shortcut": "Bremen",
+            "Name": "Bremische Bürgerschaft",
+            "Election": "Bürgerschaftswahl in Bremen"
+        },
+        "8": {
+            "Shortcut": "Mecklenburg-Vorpommern",
+            "Name": "Landtag von Mecklenburg-Vorpommern",
+            "Election": "Landtagswahl in Mecklenburg-Vorpommern"
+        },
+        "3": {
+            "Shortcut": "Berlin",
+            "Name": "Berliner Abgeordnetenhaus",
+            "Election": "Abgeordnetenhauswahl in Berlin"
         },
         "2": {
             "Shortcut": "Bayern",
@@ -50,21 +70,6 @@
             "Name": "Niedersächsischer Landtag",
             "Election": "Landtagswahl in Niedersachsen"
         },
-        "1": {
-            "Shortcut": "Baden-Württemberg",
-            "Name": "Landtag von Baden-Württemberg",
-            "Election": "Landtagswahl in Baden-Württemberg"
-        },
-        "8": {
-            "Shortcut": "Mecklenburg-Vorpommern",
-            "Name": "Landtag von Mecklenburg-Vorpommern",
-            "Election": "Landtagswahl in Mecklenburg-Vorpommern"
-        },
-        "16": {
-            "Shortcut": "Thüringen",
-            "Name": "Thüringischer Landtag",
-            "Election": "Landtagswahl in Thüringen"
-        },
         "4": {
             "Shortcut": "Brandenburg",
             "Name": "Brandenburgischer Landtag",
@@ -94,46 +99,41 @@
             "Shortcut": "Europäisches Parlament",
             "Name": "Europäisches Parlament",
             "Election": "Europawahl"
-        },
-        "5": {
-            "Shortcut": "Bremen",
-            "Name": "Bremische Bürgerschaft",
-            "Election": "Bürgerschaftswahl in Bremen"
         }
     },
     "Institutes": {
-        "16": {
-            "Name": "Civey"
+        "2": {
+            "Name": "Forsa"
+        },
+        "24": {
+            "Name": "Institut Wahlkreisprognose"
         },
         "5": {
             "Name": "INSA"
         },
-        "2": {
-            "Name": "Forsa"
-        },
-        "9": {
-            "Name": "Allensbach"
+        "1": {
+            "Name": "Infratest dimap"
         },
         "6": {
             "Name": "Forschungsgruppe Wahlen"
+        },
+        "13": {
+            "Name": "YouGov"
+        },
+        "3": {
+            "Name": "Verian (Emnid)"
+        },
+        "16": {
+            "Name": "Civey"
+        },
+        "9": {
+            "Name": "Allensbach"
         },
         "17": {
             "Name": "Ipsos"
         },
         "4": {
             "Name": "GMS"
-        },
-        "1": {
-            "Name": "Infratest dimap"
-        },
-        "3": {
-            "Name": "Verian (Emnid)"
-        },
-        "13": {
-            "Name": "YouGov"
-        },
-        "24": {
-            "Name": "Institut Wahlkreisprognose"
         },
         "22": {
             "Name": "pollytix"
@@ -170,26 +170,50 @@
         }
     },
     "Taskers": {
-        "17": {
-            "Name": "Der Tagesspiegel"
+        "63": {
+            "Name": "RTL / n-tv"
+        },
+        "97": {
+            "Name": "Institut Wahlkreisprognose"
         },
         "4": {
             "Name": "BILD"
         },
-        "63": {
-            "Name": "RTL / n-tv"
+        "3": {
+            "Name": "BILD am Sonntag"
+        },
+        "56": {
+            "Name": "Schwäbische Zeitung"
+        },
+        "80": {
+            "Name": "FUNKE Medien Thüringen"
+        },
+        "10": {
+            "Name": "ARD-Tagesthemen"
+        },
+        "5": {
+            "Name": "ZDF-Politbarometer"
+        },
+        "43": {
+            "Name": "YouGov"
+        },
+        "37": {
+            "Name": "Radio Bremen"
+        },
+        "57": {
+            "Name": "Nordkurier"
+        },
+        "64": {
+            "Name": "FOCUS"
+        },
+        "17": {
+            "Name": "Der Tagesspiegel"
         },
         "6": {
             "Name": "Frankfurter Allgemeine Zeitung"
         },
-        "3": {
-            "Name": "BILD am Sonntag"
-        },
         "60": {
             "Name": "Augsburger Allgemeine"
-        },
-        "5": {
-            "Name": "ZDF-Politbarometer"
         },
         "13": {
             "Name": "Ipsos"
@@ -197,20 +221,8 @@
         "7": {
             "Name": "GMS"
         },
-        "10": {
-            "Name": "ARD-Tagesthemen"
-        },
         "40": {
             "Name": "Saarländischer Rundfunk"
-        },
-        "64": {
-            "Name": "FOCUS"
-        },
-        "43": {
-            "Name": "YouGov"
-        },
-        "97": {
-            "Name": "Institut Wahlkreisprognose"
         },
         "122": {
             "Name": "Seven.One"
@@ -218,17 +230,11 @@
         "11": {
             "Name": "ARD"
         },
-        "56": {
-            "Name": "Schwäbische Zeitung"
-        },
         "67": {
             "Name": "pollytix"
         },
         "38": {
             "Name": "Ostsee-Zeitung"
-        },
-        "80": {
-            "Name": "FUNKE Medien Thüringen"
         },
         "39": {
             "Name": "NDR"
@@ -259,9 +265,6 @@
         },
         "98": {
             "Name": "Drei Quellen-Mediengruppe"
-        },
-        "57": {
-            "Name": "Nordkurier"
         },
         "117": {
             "Name": "RBB Abendschau / RBB 88.8"
@@ -440,9 +443,6 @@
         "85": {
             "Name": "DIE ZEIT / Körber-Stiftung"
         },
-        "37": {
-            "Name": "Radio Bremen"
-        },
         "84": {
             "Name": "CDU Sachsen"
         },
@@ -496,17 +496,17 @@
         }
     },
     "Methods": {
-        "3": {
-            "Name": "Online"
-        },
         "1": {
             "Name": "Telefonisch"
         },
-        "2": {
-            "Name": "Persönlich"
+        "3": {
+            "Name": "Online"
         },
         "4": {
             "Name": "Telefon & Online"
+        },
+        "2": {
+            "Name": "Persönlich"
         },
         "0": {
             "Name": "Unbekannt"
@@ -529,6 +529,10 @@
             "Shortcut": "Grüne",
             "Name": "Bündnis 90/Die Grünen"
         },
+        "16": {
+            "Shortcut": "BD",
+            "Name": "Bündnis Deutschland"
+        },
         "23": {
             "Shortcut": "BSW",
             "Name": "Bündnis Sahra Wagenknecht"
@@ -540,10 +544,6 @@
         "22": {
             "Shortcut": "BfTh",
             "Name": "Bürger für Thüringen"
-        },
-        "16": {
-            "Shortcut": "BIW",
-            "Name": "Bürger in Wut"
         },
         "1": {
             "Shortcut": "CDU/CSU",
@@ -619,6 +619,421 @@
         }
     },
     "Surveys": {
+        "3837": {
+            "Date": "2025-05-13",
+            "Survey_Period": {
+                "Date_Start": "2025-05-05",
+                "Date_End": "2025-05-12"
+            },
+            "Surveyed_Persons": "3001",
+            "Parliament_ID": "0",
+            "Institute_ID": "2",
+            "Tasker_ID": "63",
+            "Method_ID": "1",
+            "Results": {
+                "1": 25,
+                "7": 25,
+                "2": 15,
+                "4": 11,
+                "5": 10,
+                "0": 7,
+                "23": 4,
+                "3": 3
+            }
+        },
+        "3836": {
+            "Date": "2025-05-12",
+            "Survey_Period": {
+                "Date_Start": "2025-05-03",
+                "Date_End": "2025-05-10"
+            },
+            "Surveyed_Persons": "1100",
+            "Parliament_ID": "1",
+            "Institute_ID": "24",
+            "Tasker_ID": "97",
+            "Method_ID": "3",
+            "Results": {
+                "101": 26,
+                "4": 23,
+                "7": 23,
+                "2": 12.5,
+                "5": 5.5,
+                "3": 4.5,
+                "0": 4,
+                "23": 1.5
+            }
+        },
+        "3835": {
+            "Date": "2025-05-12",
+            "Survey_Period": {
+                "Date_Start": "2025-05-09",
+                "Date_End": "2025-05-12"
+            },
+            "Surveyed_Persons": "2004",
+            "Parliament_ID": "0",
+            "Institute_ID": "5",
+            "Tasker_ID": "4",
+            "Method_ID": "3",
+            "Results": {
+                "1": 25,
+                "7": 24.5,
+                "2": 16,
+                "4": 11,
+                "5": 10,
+                "0": 6,
+                "23": 4,
+                "3": 3.5
+            }
+        },
+        "3834": {
+            "Date": "2025-05-10",
+            "Survey_Period": {
+                "Date_Start": "2025-05-05",
+                "Date_End": "2025-05-09"
+            },
+            "Surveyed_Persons": "1203",
+            "Parliament_ID": "0",
+            "Institute_ID": "5",
+            "Tasker_ID": "3",
+            "Method_ID": "4",
+            "Results": {
+                "1": 25,
+                "7": 24,
+                "2": 16,
+                "4": 11,
+                "5": 10,
+                "0": 6,
+                "3": 4,
+                "23": 4
+            }
+        },
+        "3833": {
+            "Date": "2025-05-09",
+            "Survey_Period": {
+                "Date_Start": "2025-04-29",
+                "Date_End": "2025-05-06"
+            },
+            "Surveyed_Persons": "1000",
+            "Parliament_ID": "1",
+            "Institute_ID": "5",
+            "Tasker_ID": "56",
+            "Method_ID": "3",
+            "Results": {
+                "101": 31,
+                "7": 19,
+                "4": 17,
+                "2": 12,
+                "5": 8,
+                "3": 6,
+                "23": 4,
+                "0": 3
+            }
+        },
+        "3832": {
+            "Date": "2025-05-08",
+            "Survey_Period": {
+                "Date_Start": "2025-04-29",
+                "Date_End": "2025-05-06"
+            },
+            "Surveyed_Persons": "1000",
+            "Parliament_ID": "16",
+            "Institute_ID": "5",
+            "Tasker_ID": "80",
+            "Method_ID": "3",
+            "Results": {
+                "7": 35,
+                "101": 24,
+                "5": 14,
+                "23": 11,
+                "2": 8,
+                "0": 5,
+                "4": 3
+            }
+        },
+        "3831": {
+            "Date": "2025-05-07",
+            "Survey_Period": {
+                "Date_Start": "2025-05-05",
+                "Date_End": "2025-05-06"
+            },
+            "Surveyed_Persons": "1325",
+            "Parliament_ID": "0",
+            "Institute_ID": "1",
+            "Tasker_ID": "10",
+            "Method_ID": "4",
+            "Results": {
+                "1": 27,
+                "7": 23,
+                "2": 16,
+                "4": 11,
+                "5": 10,
+                "0": 5,
+                "3": 4,
+                "23": 4
+            }
+        },
+        "3830": {
+            "Date": "2025-05-06",
+            "Survey_Period": {
+                "Date_Start": "2025-05-02",
+                "Date_End": "2025-05-05"
+            },
+            "Surveyed_Persons": "2003",
+            "Parliament_ID": "0",
+            "Institute_ID": "5",
+            "Tasker_ID": "4",
+            "Method_ID": "3",
+            "Results": {
+                "1": 24.5,
+                "7": 24.5,
+                "2": 16,
+                "4": 11,
+                "5": 10,
+                "0": 6,
+                "3": 4,
+                "23": 4
+            }
+        },
+        "3829": {
+            "Date": "2025-05-05",
+            "Survey_Period": {
+                "Date_Start": "2025-04-29",
+                "Date_End": "2025-05-02"
+            },
+            "Surveyed_Persons": "1503",
+            "Parliament_ID": "0",
+            "Institute_ID": "2",
+            "Tasker_ID": "63",
+            "Method_ID": "1",
+            "Results": {
+                "1": 25,
+                "7": 25,
+                "2": 15,
+                "4": 12,
+                "5": 10,
+                "0": 7,
+                "3": 3,
+                "23": 3
+            }
+        },
+        "3828": {
+            "Date": "2025-05-03",
+            "Survey_Period": {
+                "Date_Start": "2025-04-28",
+                "Date_End": "2025-05-02"
+            },
+            "Surveyed_Persons": "1204",
+            "Parliament_ID": "0",
+            "Institute_ID": "5",
+            "Tasker_ID": "3",
+            "Method_ID": "4",
+            "Results": {
+                "1": 25,
+                "7": 24,
+                "2": 16,
+                "4": 12,
+                "5": 10,
+                "0": 5,
+                "3": 4,
+                "23": 4
+            }
+        },
+        "3826": {
+            "Date": "2025-05-02",
+            "Survey_Period": {
+                "Date_Start": "2025-04-28",
+                "Date_End": "2025-04-30"
+            },
+            "Surveyed_Persons": "1297",
+            "Parliament_ID": "0",
+            "Institute_ID": "6",
+            "Tasker_ID": "5",
+            "Method_ID": "4",
+            "Results": {
+                "1": 27,
+                "7": 23,
+                "2": 15,
+                "4": 11,
+                "5": 10,
+                "0": 7,
+                "3": 4,
+                "23": 3
+            }
+        },
+        "3827": {
+            "Date": "2025-04-30",
+            "Survey_Period": {
+                "Date_Start": "2025-04-27",
+                "Date_End": "2025-04-30"
+            },
+            "Surveyed_Persons": "1000",
+            "Parliament_ID": "0",
+            "Institute_ID": "24",
+            "Tasker_ID": "97",
+            "Method_ID": "3",
+            "Results": {
+                "1": 26,
+                "7": 24.5,
+                "2": 16.5,
+                "4": 12,
+                "5": 10.5,
+                "3": 4,
+                "23": 3.5,
+                "0": 3
+            }
+        },
+        "3825": {
+            "Date": "2025-04-30",
+            "Survey_Period": {
+                "Date_Start": "2025-04-25",
+                "Date_End": "2025-04-28"
+            },
+            "Surveyed_Persons": "1987",
+            "Parliament_ID": "0",
+            "Institute_ID": "13",
+            "Tasker_ID": "43",
+            "Method_ID": "2",
+            "Results": {
+                "1": 26,
+                "7": 26,
+                "2": 14,
+                "4": 12,
+                "5": 10,
+                "23": 5,
+                "3": 4,
+                "0": 3
+            }
+        },
+        "3824": {
+            "Date": "2025-04-29",
+            "Survey_Period": {
+                "Date_Start": "2025-04-22",
+                "Date_End": "2025-04-28"
+            },
+            "Surveyed_Persons": "2004",
+            "Parliament_ID": "0",
+            "Institute_ID": "2",
+            "Tasker_ID": "63",
+            "Method_ID": "1",
+            "Results": {
+                "7": 26,
+                "1": 24,
+                "2": 14,
+                "4": 12,
+                "5": 10,
+                "0": 7,
+                "23": 4,
+                "3": 3
+            }
+        },
+        "3823": {
+            "Date": "2025-04-28",
+            "Survey_Period": {
+                "Date_Start": "2025-04-22",
+                "Date_End": "2025-04-24"
+            },
+            "Surveyed_Persons": "1128",
+            "Parliament_ID": "5",
+            "Institute_ID": "1",
+            "Tasker_ID": "37",
+            "Method_ID": "4",
+            "Results": {
+                "2": 25,
+                "101": 22,
+                "7": 15,
+                "4": 14,
+                "5": 13,
+                "0": 8,
+                "16": 3
+            }
+        },
+        "3822": {
+            "Date": "2025-04-28",
+            "Survey_Period": {
+                "Date_Start": "2025-04-08",
+                "Date_End": "2025-04-15"
+            },
+            "Surveyed_Persons": "1000",
+            "Parliament_ID": "8",
+            "Institute_ID": "5",
+            "Tasker_ID": "57",
+            "Method_ID": "3",
+            "Results": {
+                "7": 29,
+                "2": 21,
+                "101": 17,
+                "5": 15,
+                "0": 7,
+                "23": 6,
+                "4": 5
+            }
+        },
+        "3821": {
+            "Date": "2025-04-28",
+            "Survey_Period": {
+                "Date_Start": "2025-04-25",
+                "Date_End": "2025-04-28"
+            },
+            "Surveyed_Persons": "2006",
+            "Parliament_ID": "0",
+            "Institute_ID": "5",
+            "Tasker_ID": "4",
+            "Method_ID": "3",
+            "Results": {
+                "1": 25,
+                "7": 25,
+                "2": 15.5,
+                "4": 11,
+                "5": 10,
+                "0": 6.5,
+                "23": 4,
+                "3": 3
+            }
+        },
+        "3819": {
+            "Date": "2025-04-26",
+            "Survey_Period": {
+                "Date_Start": "2025-04-22",
+                "Date_End": "2025-04-25"
+            },
+            "Surveyed_Persons": "1204",
+            "Parliament_ID": "0",
+            "Institute_ID": "5",
+            "Tasker_ID": "3",
+            "Method_ID": "4",
+            "Results": {
+                "1": 25,
+                "7": 25,
+                "2": 15,
+                "4": 12,
+                "5": 10,
+                "0": 6,
+                "23": 4,
+                "3": 3
+            }
+        },
+        "3820": {
+            "Date": "2025-04-25",
+            "Survey_Period": {
+                "Date_Start": "2025-04-15",
+                "Date_End": "2025-04-22"
+            },
+            "Surveyed_Persons": "1469",
+            "Parliament_ID": "0",
+            "Institute_ID": "3",
+            "Tasker_ID": "64",
+            "Method_ID": "1",
+            "Results": {
+                "1": 26,
+                "7": 24,
+                "2": 16,
+                "4": 12,
+                "5": 9,
+                "0": 6,
+                "23": 4,
+                "3": 3
+            }
+        },
         "3818": {
             "Date": "2025-04-24",
             "Survey_Period": {

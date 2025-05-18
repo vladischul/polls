@@ -1,6 +1,6 @@
 import requests
 from django.utils import timezone
-from polls_app.models import Question, Poll, PollResult, Institute, Party
+from polls_app.models import Poll, PollResult, Institute, Party
 from django.core.management.base import BaseCommand
 from datetime import datetime
 from django.db import transaction

@@ -45,6 +45,27 @@
     </div>
 
     <script>
+        // alle polls loggen (testing)
+        const polls = [
+            {% for poll in polls %}
+            {
+                institute: "{{ poll.institute.name|escapejs }}",
+                pollDate: "{{ poll.pub_date|date:'Y-m-d'|escapejs }}",
+                results: [
+                    {% for result in poll.pollresult_set.all %}
+                    {
+                        party: "{{ result.party.name|escapejs }}",
+                        partyShortcut: "{{ result.party.shortcut|escapejs }}",
+                        percentage: "{{ result.percentage|default:'0'|escapejs }}"
+                    }{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ]
+            }{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ];
+        console.log("Poll data:", polls);
+
+
         const allPollData = [
             {% for poll in polls|slice:":5" %}
                 [
@@ -69,7 +90,6 @@
             'FDP': 'rgba(255, 205, 0, 0.7)',
             'BSW': 'rgba(0, 204, 204, 0.7)'
         };
-
         allPollData.forEach((pollData, index) => {
             const ctx = document.getElementById(`chart-${index}`);
             if (ctx) {

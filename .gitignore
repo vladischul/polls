@@ -10,7 +10,9 @@ env/
 *.sqlite3
 db.sqlite3
 /staticfiles/
+/polls_proj/staticfiles/
 media/
+api_data_debug.json
 
 # VSCode or PyCharm
 .vscode/
